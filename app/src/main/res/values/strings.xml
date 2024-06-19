@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyApplication</string>
+    <string name="image_desc">Descripción de la imagen del producto</string>
+    <string name="product_image">Descripción de la imagen del producto</string>
+        <string name="button_view_cart">Ver Carro de Compras</string>
+        <string name="activity_home">Home</string>
+        <string name="activity_cart">Cart</string>
+        <string name="text_total">Total: </string>
+
+</resources>
