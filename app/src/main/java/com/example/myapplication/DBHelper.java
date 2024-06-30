@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Crear tabla de usuarios
+        // Crear tabla de usuarios HOLA HOLA HOLA HOLA
         db.execSQL("CREATE TABLE " + USER_TABLE_NAME + " (" +
                 USER_COLUMN_USERNAME + " TEXT PRIMARY KEY, " +
                 USER_COLUMN_PASSWORD + " TEXT)");
