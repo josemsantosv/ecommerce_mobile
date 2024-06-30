@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -23,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PRODUCT_COLUMN_IMAGE = "image";
 
     public DBHelper(Context context) {
-        super(context, DBNAME, null, 1);
+        super(context, DBNAME, null, 3); // Incrementa la versión de la base de datos
     }
 
     @Override
@@ -41,16 +42,34 @@ public class DBHelper extends SQLiteOpenHelper {
                 PRODUCT_COLUMN_IMAGE + " TEXT)");
 
         // Insertar datos iniciales de productos
-        db.execSQL("INSERT INTO " + PRODUCT_TABLE_NAME + " (name, price, image) VALUES ('Cotton Dress', 10, 'product_four')");
-        db.execSQL("INSERT INTO " + PRODUCT_TABLE_NAME + " (name, price, image) VALUES ('Denim Top', 11, 'product_four')");
-        db.execSQL("INSERT INTO " + PRODUCT_TABLE_NAME + " (name, price, image) VALUES ('Denim Shorts', 8, 'product_four')");
-        db.execSQL("INSERT INTO " + PRODUCT_TABLE_NAME + " (name, price, image) VALUES ('Cotton Top', 11, 'product_four')");
-        db.execSQL("INSERT INTO " + PRODUCT_TABLE_NAME + " (name, price, image) VALUES ('Flare Top', 9, 'product_four')");
-        db.execSQL("INSERT INTO " + PRODUCT_TABLE_NAME + " (name, price, image) VALUES ('Denim shorts', 10, 'product_four')");
+        insertInitialProducts(db);
+    }
+
+    private void insertInitialProducts(SQLiteDatabase db) {
+        insertProduct(db, "Cotton Dress", 10, "product_four");
+        insertProduct(db, "Denim Top", 11, "product_four");
+        insertProduct(db, "Denim Shorts", 8, "product_four");
+        insertProduct(db, "Cotton Top", 11, "product_four");
+        insertProduct(db, "FlarTop", 9, "product_one");
+        insertProduct(db, "FlarTop", 9, "product_one");
+        insertProduct(db, "FlarTop", 9, "product_one");
+        insertProduct(db, "FlarTop", 9, "product_one");
+        insertProduct(db, "Flae Top", 9, "product_one");
+        insertProduct(db, "Denimshorts", 10, "product_one");
+    }
+
+    private void insertProduct(SQLiteDatabase db, String name, double price, String image) {
+        ContentValues values = new ContentValues();
+        values.put(PRODUCT_COLUMN_NAME, name);
+        values.put(PRODUCT_COLUMN_PRICE, price);
+        values.put(PRODUCT_COLUMN_IMAGE, image);
+        long result = db.insert(PRODUCT_TABLE_NAME, null, values);
+        Log.d("DBHelper", "insertProduct: " + name + ", " + price + ", " + image + ", Result: " + result);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.d("DBHelper", "onUpgrade: oldVersion: " + oldVersion + ", newVersion: " + newVersion);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + PRODUCT_TABLE_NAME);
         onCreate(db);
@@ -90,6 +109,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(PRODUCT_COLUMN_PRICE, price);
         values.put(PRODUCT_COLUMN_IMAGE, image);
         long result = db.insert(PRODUCT_TABLE_NAME, null, values);
+        Log.d("DBHelper", "insertProduct: " + name + ", " + price + ", " + image + ", Result: " + result);
         return result != -1;
     }
 
@@ -100,28 +120,35 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(PRODUCT_COLUMN_PRICE, price);
         values.put(PRODUCT_COLUMN_IMAGE, image);
         long result = db.update(PRODUCT_TABLE_NAME, values, PRODUCT_COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        Log.d("DBHelper", "updateProduct: " + name + ", " + price + ", " + image + ", Result: " + result);
         return result != -1;
     }
 
     public Boolean deleteProduct(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(PRODUCT_TABLE_NAME, PRODUCT_COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        Log.d("DBHelper", "deleteProduct: ID: " + id + ", Result: " + result);
         return result != -1;
     }
 
     public Cursor getProduct(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + PRODUCT_TABLE_NAME + " WHERE " + PRODUCT_COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + PRODUCT_TABLE_NAME + " WHERE " + PRODUCT_COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        Log.d("DBHelper", "getProduct: ID: " + id);
+        return cursor;
     }
 
     public Cursor getAllProducts() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + PRODUCT_TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + PRODUCT_TABLE_NAME, null);
+        Log.d("DBHelper", "getAllProducts: Count: " + cursor.getCount());
+        return cursor;
     }
 
-    // Previous version's methods
-
-    // Insert data into users table
+    // Métodos heredados de la versión anterior - podrían eliminarse si ya no se utilizan
     public Boolean insertData(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -131,23 +158,19 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    // Check if username exists in users table
     public Boolean checkusername(String username) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username=?", new String[]{username});
-        if (cursor.getCount() > 0)
-            return true;
-        else
-            return false;
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
     }
 
-    // Check if username and password match in users table
     public Boolean checkusernamepassword(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where username=? and password=?", new String[]{username, password});
-        if (cursor.getCount() > 0)
-            return true;
-        else
-            return false;
-    }
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+}
 }
