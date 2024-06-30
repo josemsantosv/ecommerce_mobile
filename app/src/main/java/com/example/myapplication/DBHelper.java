@@ -164,6 +164,7 @@ public class DBHelper extends SQLiteOpenHelper {
         boolean exists = cursor.getCount() > 0;
         cursor.close();
         return exists;
+
     }
 
     public Boolean checkusernamepassword(String username, String password) {
