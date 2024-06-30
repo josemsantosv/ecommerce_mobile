@@ -11,9 +11,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "catalog.db";
     public static final String USER_TABLE_NAME = "users";
+
     public static final String PRODUCT_TABLE_NAME = "products";
 
-    // Columnas para la tabla de usuarios
+    // Columnas para la tabla de usuarios LUIS CAMBIO
     public static final String USER_COLUMN_USERNAME = "username";
     public static final String USER_COLUMN_PASSWORD = "password";
 
