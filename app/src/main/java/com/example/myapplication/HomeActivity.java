@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-
+//tttttttttttttttt
     private RecyclerView recyclerView;
     private CatalogAdapter adapter;
     private List<Product> productList;
