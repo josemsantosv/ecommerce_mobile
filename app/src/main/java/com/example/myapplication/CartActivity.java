@@ -34,7 +34,7 @@ public class CartActivity extends AppCompatActivity {
         cartProductList = getIntent().getParcelableArrayListExtra("selectedProducts");
 
         // Configurar el adaptador del RecyclerView
-        adapter = new CartAdapter(cartProductList, this);
+        adapter = new CartAdapter(cartProductList, this, this::calculateTotal);
         recyclerView.setAdapter(adapter);
 
         // Calcular el total
