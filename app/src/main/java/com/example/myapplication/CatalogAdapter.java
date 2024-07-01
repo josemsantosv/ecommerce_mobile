@@ -37,7 +37,6 @@ public class CatalogAdapter extends RecyclerView.Adapter<CatalogAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.textViewTitle.setText(product.getName());
-
         holder.textViewPrice.setText("$" + product.getPrice());
         holder.imageView.setImageResource(context.getResources().getIdentifier(product.getImage(), "drawable", context.getPackageName()));
         holder.checkBox.setChecked(selectedProducts.contains(product));
