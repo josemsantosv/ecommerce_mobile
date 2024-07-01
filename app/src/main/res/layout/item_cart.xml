@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/imageViewProduct"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/product_image" />
 
     <LinearLayout
@@ -31,4 +32,12 @@
             android:layout_height="wrap_content"
             android:text="Product Price" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"/>
 </LinearLayout>

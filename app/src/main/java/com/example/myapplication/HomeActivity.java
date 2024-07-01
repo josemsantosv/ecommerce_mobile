@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-
+//tttttttttttttttt
     private RecyclerView recyclerView;
     private CatalogAdapter adapter;
     private List<Product> productList;
@@ -28,7 +28,9 @@ public class HomeActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         buttonViewCart = findViewById(R.id.buttonViewCart);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Configuración del RecyclerView con GridLayoutManager para dos columnas
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         dbHelper = new DBHelper(this);
         loadProductsFromDatabase();
@@ -49,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void loadProductsFromDatabase() {
         productList = new ArrayList<>();
+        dbHelper = new DBHelper(this);
         Cursor cursor = dbHelper.getAllProducts();
 
         if (cursor != null) {
