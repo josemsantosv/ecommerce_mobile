@@ -134,7 +134,8 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_edittext"
                     android:hint="Documento"
-                    android:padding="16dp" />
+                    android:padding="16dp"
+                    android:inputType="number" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -142,7 +143,11 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_edittext"
                     android:hint="Correo"
-                    android:padding="16dp" />
+                    android:padding="16dp"
+                    android:inputType="textEmailAddress"
+                    />
+
+
 
                 <EditText
                     android:layout_width="match_parent"
@@ -197,6 +202,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Número de Tarjeta"
                     android:padding="16dp"
+                    android:inputType="number"
                     android:background="@drawable/custom_edittext"
                     android:layout_marginBottom="16dp"/>
 
@@ -206,7 +212,9 @@
                     android:hint="Fecha de Expiración (MM/AA)"
                     android:padding="16dp"
                     android:background="@drawable/custom_edittext"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp"
+
+                    />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -214,7 +222,11 @@
                     android:hint="CVV"
                     android:padding="16dp"
                     android:background="@drawable/custom_edittext"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp"
+                    android:inputType="number"
+                    />
+
+
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
