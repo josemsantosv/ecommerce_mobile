@@ -45,7 +45,10 @@ public class HomeActivity extends AppCompatActivity {
                 ArrayList<Product> selectedProducts = new ArrayList<>(adapter.getSelectedProducts());
                 intent.putParcelableArrayListExtra("selectedProducts", selectedProducts);
                 startActivity(intent);
+
+
             }
+
         });
     }
 

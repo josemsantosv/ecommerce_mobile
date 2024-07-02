@@ -23,12 +23,21 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="625dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="1"
-        android:paddingTop="8dp"
         android:clipToPadding="false"
-        android:scrollbars="vertical"
-        android:layout_marginBottom="16dp" />
+        android:paddingTop="8dp"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/buttonCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:textSize="14sp" />
+
+
 
 </LinearLayout>
