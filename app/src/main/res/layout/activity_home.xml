@@ -20,13 +20,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         tools:listitem="@layout/item_catalog" />
-    <ImageButton
-        android:id="@+id/buttonMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_menu_slideshow"
-        android:contentDescription="Abrir menú"
-        android:onClick="toggleDrawer" />
+
 
     <Button
         android:id="@+id/buttonViewCart"

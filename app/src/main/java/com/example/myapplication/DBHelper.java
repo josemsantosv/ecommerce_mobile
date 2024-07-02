@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PRODUCT_COLUMN_IMAGE = "image";
 
     public DBHelper(Context context) {
-        super(context, DBNAME, null, 3); // Incrementa la versión de la base de datos
+        super(context, DBNAME, null, 7); // Incrementa la versión de la base de datos
     }
 
     @Override
@@ -46,16 +46,16 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private void insertInitialProducts(SQLiteDatabase db) {
-        insertProduct(db, "Cotton Dress", 10, "product_four");
-        insertProduct(db, "Denim Top", 11, "product_four");
-        insertProduct(db, "Denim Shorts", 8, "product_four");
-        insertProduct(db, "Cotton Top", 11, "product_four");
-        insertProduct(db, "FlarTop", 9, "product_one");
-        insertProduct(db, "FlarTop", 9, "product_one");
-        insertProduct(db, "FlarTop", 9, "product_one");
-        insertProduct(db, "FlarTop", 9, "product_one");
-        insertProduct(db, "Flae Top", 9, "product_one");
-        insertProduct(db, "Denimshorts", 10, "product_one");
+        insertProduct(db, "Polo Manga Corta Hombre", 45, "producto_one");
+        insertProduct(db, "Blusa Casual Mujer", 65, "producto_dos");
+        insertProduct(db, "Jeans Slim Fit Hombre", 120, "producto_tres");
+        insertProduct(db, "Vestido de Fiesta Mujer", 180, "producto_cuatro");
+        insertProduct(db, "Casaca de Jean Unisex", 150, "producto_cinco");
+        insertProduct(db, "Falda Midi Mujer", 80, "producto_seis");
+        insertProduct(db, "Camisa Formal Hombre", 90, "producto_siete");
+        insertProduct(db, "Pantalón Chino Hombre", 110, "producto_ocho");
+        insertProduct(db, "Leggings Deportivos Mujer", 70, "producto_nueve");
+        insertProduct(db, "Casaca Rompevientos Unisex", 130, "producto_diez");
     }
 
     private void insertProduct(SQLiteDatabase db, String name, double price, String image) {
