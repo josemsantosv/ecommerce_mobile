@@ -8,7 +8,7 @@
     android:gravity="center"
     tools:context=".HomeActivity">
 
-    <!-- RecyclerView con dos columnas -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -21,13 +21,13 @@
         app:spanCount="2"
         tools:listitem="@layout/item_catalog" />
 
-    <!-- Botón para ver el carrito de compras -->
+
     <Button
         android:id="@+id/buttonViewCart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_view_cart"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:backgroundTint="@color/green"
         android:layout_margin="16dp"
         app:cornerRadius="20dp" />

@@ -47,6 +47,6 @@
         android:padding="16dp"
         android:text="Continuar Comprando"
         android:textSize="18sp"
-        app:cornerRadius="10dp" />
+        app:cornerRadius="20dp" />
 
 </LinearLayout>
