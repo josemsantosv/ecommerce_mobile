@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@color/white"
+    tools:context=".ThankYouActivity">
+
+    <ImageView
+        android:id="@+id/imageViewThankYou"
+        android:layout_width="122dp"
+        android:layout_height="193dp"
+        android:layout_marginBottom="24dp"
+
+        android:src="@drawable/check" />
+
+    <TextView
+        android:id="@+id/textViewThankYouMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_marginBottom="16dp"
+        android:text="¡Gracias por tu compra!"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewOrderSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Tu pedido ha sido recibido y está en proceso de preparación."
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonContinueShopping"
+        app:cornerRadius="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/green"
+        android:padding="16dp"
+        android:text="Continuar Comprando"
+        android:textSize="18sp" />
+
+</LinearLayout>

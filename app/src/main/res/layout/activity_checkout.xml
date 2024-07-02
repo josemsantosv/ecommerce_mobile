@@ -44,7 +44,6 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-
                         android:contentDescription="Imagen del Producto"/>
 
                     <LinearLayout
@@ -72,6 +71,7 @@
 
                 <!-- Subtotal and Total -->
                 <TextView
+                    android:id="@+id/tsubtotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Subtotal: $XX.XX"
@@ -80,6 +80,7 @@
                     android:layout_marginBottom="4dp"/>
 
                 <TextView
+                    android:id="@+id/ttotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Total: $XX.XX"
@@ -216,6 +217,7 @@
 
         <!-- Confirm Purchase Button -->
         <Button
+            android:id="@+id/confirmPurchaseButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirmar Compra"

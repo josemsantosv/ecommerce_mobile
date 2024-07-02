@@ -45,8 +45,9 @@ public class CartActivity extends AppCompatActivity {
 
         // Configurar OnClickListener para el botón Checkout
         checkoutButton.setOnClickListener(v -> {
-            // Abrir la actividad de checkout al hacer clic
+            // Pasar el total al iniciar CheckoutActivity
             Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+            intent.putExtra("total", total); // Pasar el total
             startActivity(intent);
         });
     }
