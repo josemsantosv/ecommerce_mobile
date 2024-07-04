@@ -39,7 +39,8 @@
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Añadir al carro de compras"
+            android:text="Agregar al carrito"
+            android:backgroundTint="@color/green"
             android:layout_marginTop="8dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

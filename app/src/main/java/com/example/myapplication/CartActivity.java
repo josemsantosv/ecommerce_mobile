@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ public class CartActivity extends AppCompatActivity {
         // Inicializar vistas
         recyclerView = findViewById(R.id.recyclerView);
         textViewTotal = findViewById(R.id.textViewTotal);
+        Button checkoutButton = findViewById(R.id.buttonCheckout); // Obtener referencia al botón Checkout
 
         // Configurar el RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -34,11 +37,19 @@ public class CartActivity extends AppCompatActivity {
         cartProductList = getIntent().getParcelableArrayListExtra("selectedProducts");
 
         // Configurar el adaptador del RecyclerView
-        adapter = new CartAdapter(cartProductList, this);
+        adapter = new CartAdapter(cartProductList, this, this::calculateTotal);
         recyclerView.setAdapter(adapter);
 
         // Calcular el total
         calculateTotal();
+
+        // Configurar OnClickListener para el botón Checkout
+        checkoutButton.setOnClickListener(v -> {
+            // Pasar el total al iniciar CheckoutActivity
+            Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+            intent.putExtra("total", total); // Pasar el total
+            startActivity(intent);
+        });
     }
 
     private void calculateTotal() {
