@@ -19,6 +19,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private Context context;
     private OnItemRemovedListener onItemRemovedListener;
 
+
     public CartAdapter(List<Product> cartProductList, Context context, OnItemRemovedListener onItemRemovedListener) {
         this.cartProductList = cartProductList;
         this.context = context;
@@ -30,10 +31,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false);
         return new CartViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
+
         Product product = cartProductList.get(position);
         holder.textViewName.setText(product.getName());
         holder.textViewPrice.setText("$" + String.format("%.2f", product.getPrice()));

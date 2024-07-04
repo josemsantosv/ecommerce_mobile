@@ -35,41 +35,22 @@
                     android:layout_marginBottom="8dp"/>
 
                 <!-- Product Item -->
-                <LinearLayout
+
+                <!-- Otros elementos como el título "Resumen de compra" -->
+
+                <!-- Otros elementos de la interfaz -->
+
+                <Button
+                    android:id="@+id/backButton"
+                    android:textSize="18sp"
+                    android:backgroundTint="@color/green"
+                    android:padding="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:text="Ver Carrito"
+                    android:layout_marginTop="16dp"
+                    app:cornerRadius="20dp"/>
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="Imagen del Producto"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:paddingStart="16dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Nombre del Producto"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="4dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Precio: $XX.XX"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Subtotal and Total -->
                 <TextView
                     android:id="@+id/tsubtotal"
                     android:layout_width="match_parent"
